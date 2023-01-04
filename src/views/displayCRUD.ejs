@@ -1,0 +1,77 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display CRUD</title>
+</head>
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+    }
+
+    .btn-edit {
+        margin: 5px 0;
+        border-radius: 7px;
+        height: 25px;
+        background-color: rgb(223, 223, 43);
+        cursor: pointer;
+    }
+
+    .btn-delete {
+        margin: 5px;
+        border-radius: 7px;
+        height: 25px;
+        background-color: rgb(224, 35, 44);
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <table style="width:100%">
+        <tr>
+            <td>ID</td>
+            <td>Firt Name</td>
+            <td>Last Name</td>
+            <td>Email</td>
+            <td>Address</td>
+            <td>Phone Number</td>
+            <td>Action</td>
+        </tr>
+        <% for(let i=0; i < dataTables.length; i++) { %>
+            <tr>
+                <td>
+                    <%= dataTables[i].id %>
+                </td>
+                <td>
+                    <%= dataTables[i].firstName %>
+                </td>
+                <td>
+                    <%= dataTables[i].lastName %>
+                </td>
+                <td>
+                    <%= dataTables[i].email %>
+                </td>
+                <td>
+                    <%= dataTables[i].address %>
+                </td>
+                <td>
+                    <%= dataTables[i].phonenumber %>
+                </td>
+                <td>
+                    <button class="btn-edit" type="button">
+                        <a href="/edit-crud?id=<%=dataTables[i].id%>">Edit</a>
+                    </button>
+                    <button class="btn-delete" type="button">
+                        <a href="/delete-crud?id=<%=dataTables[i].id%>">Delete</a>
+                    </button>
+                </td>
+                <% } %>
+            </tr>
+    </table>
+</body>
+
+</html>
